@@ -3,7 +3,7 @@ const ErrorHandler = require('../utils/errorHandler');
 const userSch = require('../models/userSch');
 let isAuthentic = async (req, res, next) => {
     let { token } = req.cookies;
-    // console.log(token);
+    console.log(token);
     // console.log(req.route);
     if (!token) {
         return next(new ErrorHandler('please login first to access the page', 401))
