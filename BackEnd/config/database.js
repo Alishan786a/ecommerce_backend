@@ -1,6 +1,8 @@
 let mongoose=require('mongoose');
 
 mongoose.connect(process.env.MONGODB_PATH,{
+    poolSize: 10,
+    serverSelectionTimeoutMS: 30000,
     useNewUrlParser:true,
     useUnifiedTopology:true
 });
