@@ -47,7 +47,7 @@ url:fileUploaded.secure_url
 let login = catchAsync(async (req, res, next) => {
 
     let { email, password } = req.body;
-    console.log(email)
+   // console.log(email)
     if (!email || !password) {
         return next(new ErrorHandler('please enter email and password', 400))
 
