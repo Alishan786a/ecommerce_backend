@@ -1,6 +1,6 @@
 let express=require('express');
 const productRoute = require('./routes/productRoute');
-const errorMiddleware = require('../../myfiles/middleware/errorMiddleware');
+const errorMiddleware = require('./middleware/error');
 const userRoute = require('./routes/userRoute');
 const orderRoute = require('./routes/orderRoute');
 const cookieParser = require('cookie-parser');
