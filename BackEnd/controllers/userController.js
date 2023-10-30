@@ -119,82 +119,7 @@ const transporter = nodemailer.createTransport({
     }
   });
 
-
-  
-  
- 
-
- 
 })
-
-// let forgetpassword = catchAsync(async (req, res, next) => {
-
-//     let { email } = req.body;
-//     if (!email) {
-//         return next(new ErrorHandler('please enter email', 401))
-//     }
-//     let user = await userSch.findOne({ email });
-//     if (!user) {
-//         return next(new ErrorHandler('user not found with given email', 401))
-
-//     };
-
-//     let token = await user.resetPasswordToken()
-//     // let message = `${req.protocol}://${req.get('host')}/password/reset/${token}`;
-//     let message = `${req.protocol}://localhost:3000/password/reset/${token}`;
-//     var defaultClient = Brevo.ApiClient.instance;
-//     var apiKey = defaultClient.authentications['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'];
-//     apiKey.apiKey = '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';
-// // nodemaler
-
-// var apiInstance = new Brevo.TransactionalEmailsApi();
-
-// var sendSmtpEmail = new Brevo.SendSmtpEmail({
-
-//     "sender":{ "email":"alishanwebdev@gmail.com", "name":"Brevo"},
-//     "subject":"This is my default subject line",
-//     "htmlContent":"<!DOCTYPE html><html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>",
-//     "params":{
-//        "greeting":"This is the default greeting",
-//        "headline":"This is the default headline"
-//     },
-//   "messageVersions":[
-//     //Definition for Message Version 1 
-//     {
-//         "to":[
-//            {
-//               "email":email,
-              
-//            }
-           
-//         ],
-//         "htmlContent":"<!DOCTYPE html><html><body><h1>Modified header!</h1><p>Click on the link to reset your pawssword</p></body></html>",
-//         "subject":message
-//      }
-//     ]
-//     });
-
-//     apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
-//         console.log('API called successfully. Returned data: ' + data);
-//         res.status(200).send({sms:"We have send you an Email please check your inbox"})
-//       }, function(error) {
-//         console.error(error);
-//       });
-// // try {
-// //     await transporter.sendMail(mailOptions)
-// //     await user.save()
-// //     res.status(200).send({sms:"We have send you an Email please check your inbox"})
-// // } catch (error) {
-// //     console.log(error);
-// //     return next(new ErrorHandler('something went wrong while sendind email', 400))
-// // }
-
-  
-  
- 
-
- 
-// })
 
 //reset password
 let resetpassword = catchAsync(async (req, res, next) => {
@@ -271,6 +196,7 @@ let logout = catchAsync(async (req, res, next) => {
 //get profile
 let profile = catchAsync(async (req, res, next) => {
     let user = await userSch.findById(req.user.id);
+    
     if (!user) {
         return next(new ErrorHandler('user not found please login', 401))
 
